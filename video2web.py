@@ -7,9 +7,13 @@ import threading
 import argparse
 import time
 import cv2
+import pyautogui
+import pydirectinput
+import win32api, win32con, win32gui
 
 from window_capture import WindowCapture
-wincap = WindowCapture("League of Legends")
+#wincap = WindowCapture("League of Legends (TM) Client")
+wincap = WindowCapture("Baba is You")
 
 outputFrame = None
 lock = threading.Lock()
@@ -71,6 +75,53 @@ def video_feed():
     return Response(generate(),
                     mimetype="multipart/x-mixed-replace; boundary=frame")
 
+@app.route("/control/r", methods=['GET'])
+def r():
+    print("r")
+    pydirectinput.press('r')
+    return 'r'
+
+@app.route("/control/d", methods=['GET'])
+def d():
+    print("d")
+    pydirectinput.press('d')
+    return 'd'
+
+@app.route("/control/f", methods=['GET'])
+def f():
+    print("f")
+    pydirectinput.press('f')
+    return 'f'
+
+@app.route("/control/up", methods=['GET'])
+def up():
+    print("up")
+    pydirectinput.press('up')
+    return 'up'
+
+@app.route("/control/down", methods=['GET'])
+def down():
+    print("down")
+    pydirectinput.press('down')
+    return 'down'
+
+@app.route("/control/left", methods=['GET'])
+def left():
+    print("left")
+    pydirectinput.press('left')
+    return 'left'
+
+@app.route("/control/right", methods=['GET'])
+def right():
+    print("right")
+    pydirectinput.press('right')
+    return 'right'
+
+@app.route("/control/enter", methods=['GET'])
+def enter():
+    print("enter")
+    pydirectinput.press('enter')
+    return 'enter'
 
 # check to see if this is the main thread of execution
 if __name__ == '__main__':
