@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>Baba is You</title>
+  </head>
+  <body>
+    <script>
+      var body = document.body;
+      function goRocket(e){
+        console.log(e.keyCode);
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", "http://thomas15425nas.synology.me:11451/control?key="+e.keyCode, true );
+        xmlHttp.send( null );
+      }
+      body.addEventListener('keydown', goRocket, false)
+    </script>
+    <h1>Baba is You</h1>
+    <div>
+    <img src="http://thomas15425nas.synology.me:11451/video_feed">
+    </div>
+  </body>
+</html>
